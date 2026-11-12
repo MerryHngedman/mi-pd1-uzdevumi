@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vienkāršs un ērts uzdevumu saraksts ikdienai.">
+    <title>Mani uzdevumi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="task-card" aria-labelledby="page-title">
+        <header class="app-header">
+          <p class="eyebrow">Tavs mierīgais darba saraksts</p>
+          <h1 id="page-title">Mani uzdevumi</h1>
+          <p class="intro">Pieraksti svarīgo un paveic pa vienam solim.</p>
+        </header>
+
+        <form class="task-form" id="task-form">
+          <label class="visually-hidden" for="task-input">Jauna uzdevuma nosaukums</label>
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            placeholder="Jauns uzdevums..."
+            autocomplete="off"
+          >
+          <button class="add-button" id="add-btn" type="submit">Pievienot</button>
+        </form>
+
+        <div class="list-toolbar">
+          <span class="section-label">Mans saraksts</span>
+          <nav class="filters" aria-label="Uzdevumu filtri">
+            <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">Visi</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Aktīvie</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Izpildītie</button>
+          </nav>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+
+        <footer class="list-footer">
+          <span class="counter" id="counter" aria-live="polite">Atlikuši 0 uzdevumi</span>
+          <button class="clear-button" id="clear-completed-btn" type="button">Dzēst visus izpildītos</button>
+        </footer>
+      </section>
+      <p class="page-note">Katrs mazais solis ir progress.</p>
+    </main>
+  </body>
+</html>
