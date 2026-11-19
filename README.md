@@ -15,6 +15,9 @@
 - Atsevišķa dzēšanas poga katram uzdevumam.
 - Filtri “Visi”, “Aktīvie” un “Izpildītie”, kā arī atlikušo uzdevumu skaitītājs.
 - **Papildu funkcija D:** poga “Dzēst visus izpildītos” dzēš pabeigtos uzdevumus, saglabājot aktīvos.
+- Uzdevuma pievienošana atsevišķā dialogā ar termiņa un prioritātes izvēli.
+- Prioritātes “Augsta”, “Vidēja” un “Zema” tiek attēlotas ar atšķirīgām pasteļkrāsām un teksta apzīmējumiem.
+- A–Z kārtošana, statistikas panelis un responsīvs, gaišs lietotnes noformējums.
 
 ## Palaišana
 

@@ -12,37 +12,99 @@
     <main class="app-shell">
       <section class="task-card" aria-labelledby="page-title">
         <header class="app-header">
-          <p class="eyebrow">Tavs mierīgais darba saraksts</p>
           <h1 id="page-title">Mani uzdevumi</h1>
           <p class="intro">Pieraksti svarīgo un paveic pa vienam solim.</p>
+          <button class="add-button open-task-button" id="open-task-dialog-btn" type="button" aria-haspopup="dialog">
+            Pievienot uzdevumu
+          </button>
         </header>
 
-        <form class="task-form" id="task-form">
-          <label class="visually-hidden" for="task-input">Jauna uzdevuma nosaukums</label>
-          <input
-            id="task-input"
-            name="task"
-            type="text"
-            placeholder="Jauns uzdevums..."
-            autocomplete="off"
-          >
-          <button class="add-button" id="add-btn" type="submit">Pievienot</button>
-        </form>
+        <section class="stats-panel" aria-labelledby="stats-heading">
+          <h2 id="stats-heading">Statistika</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Kopā</span>
+              <strong class="stat-value" id="stats-total">0</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Izpildīti</span>
+              <strong class="stat-value" id="stats-completed">0</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Nokavēti</span>
+              <strong class="stat-value" id="stats-overdue">0</strong>
+            </div>
+          </div>
+          <div class="progress-row">
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-label="Uzdevumu izpildes progress"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <div class="progress-bar" id="stats-progress-bar"></div>
+            </div>
+            <strong class="progress-value" id="stats-progress">0%</strong>
+          </div>
+        </section>
+
+        <dialog class="task-dialog" id="task-dialog" aria-labelledby="dialog-heading">
+          <div class="dialog-header">
+            <h2 id="dialog-heading">Jauns uzdevums</h2>
+            <button class="dialog-close" id="close-task-dialog-btn" type="button" aria-label="Aizvērt">×</button>
+          </div>
+          <form class="task-form" id="task-form">
+            <label for="task-input">Uzdevuma nosaukums</label>
+            <input
+              id="task-input"
+              name="task"
+              type="text"
+              placeholder="Jauns uzdevums..."
+              autocomplete="off"
+              required
+            >
+            <label for="due-input">Izpildes termiņš</label>
+            <input
+              id="due-input"
+              name="due"
+              type="date"
+              aria-label="Uzdevuma izpildes termiņš"
+            >
+            <fieldset class="priority-options">
+              <legend>Prioritāte</legend>
+              <label class="priority-option">
+                <input type="radio" name="priority" value="high" checked>
+                <span class="task-priority is-high">Augsta</span>
+              </label>
+              <label class="priority-option">
+                <input type="radio" name="priority" value="medium">
+                <span class="task-priority is-medium">Vidēja</span>
+              </label>
+              <label class="priority-option">
+                <input type="radio" name="priority" value="low">
+                <span class="task-priority is-low">Zema</span>
+              </label>
+            </fieldset>
+            <button class="add-button" id="add-btn" type="submit">Pievienot</button>
+          </form>
+        </dialog>
 
         <div class="list-toolbar">
-          <span class="section-label">Mans saraksts</span>
           <nav class="filters" aria-label="Uzdevumu filtri">
             <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">Visi</button>
             <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Aktīvie</button>
             <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Izpildītie</button>
           </nav>
+          <button class="sort-button" id="sort-btn" type="button">Kārtot A-Z</button>
+          <button class="clear-button" id="clear-completed-btn" type="button">Dzēst visus izpildītos</button>
         </div>
 
         <ul class="task-list" id="task-list" aria-live="polite"></ul>
 
         <footer class="list-footer">
           <span class="counter" id="counter" aria-live="polite">Atlikuši 0 uzdevumi</span>
-          <button class="clear-button" id="clear-completed-btn" type="button">Dzēst visus izpildītos</button>
         </footer>
       </section>
       <p class="page-note">Katrs mazais solis ir progress.</p>
